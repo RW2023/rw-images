@@ -25,7 +25,7 @@ const Navbar = () => {
             className="font-semibold text-xl tracking-tight cursor-pointer"
           >
             <div>
-              <Heading title="mile master" />
+              <Heading title="r w images" />
             </div>
           </span>
         </Link>
@@ -82,6 +82,14 @@ const Navbar = () => {
               className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:text-button hover:underline mr-4 cursor-pointer"
             >
               <i className="fas fa-info-circle mr-2"></i>About
+            </span>
+          </Link>
+          <Link href="/gallery">
+            <span
+              onClick={closeNavbar}
+              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:text-button hover:underline mr-4 cursor-pointer"
+            >
+              <i className="fas fa-images mr-2"></i>Gallery
             </span>
           </Link>
           <Link href="/feedback">
