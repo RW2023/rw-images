@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cloudinary": "^1.41.0",
     "next": "14.0.4",
+    "next-cloudinary": "^5.11.0",
     "react": "^18",
     "react-dom": "^18"
   },
