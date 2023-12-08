@@ -7,7 +7,7 @@ interface Props {}
 const Contact: FC<Props> = (props): JSX.Element => {
   return (
     <div className="flex flex-col justify-center form-control w-full max-w-xs  m-auto">
-      <Heading title="Contact Us" />
+      <Heading title="contact me" />
       <form className="form-control w-full max-w-xs">
         <label className="label" htmlFor="name">
           <span className="label-text">
