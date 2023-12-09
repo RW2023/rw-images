@@ -1,19 +1,21 @@
-//src/app/gallery/page.tsx
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Heading from '@/components/ui/Heading';
 import Loading from '@/components/ui/Loading';
+import lightGallery from 'lightgallery';
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import 'lightgallery/css/lg-zoom.css';
 
-// Define an interface for image data
 interface ImageData {
   url: string;
-  // Include other properties as needed
 }
 
 export default function Gallery() {
   const [images, setImages] = useState<ImageData[]>([]);
-  const [isLoading, setIsLoading] = useState(true); // Add a loading state
+  const [isLoading, setIsLoading] = useState(true);
+  const galleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchImages() {
@@ -27,26 +29,44 @@ export default function Gallery() {
       } catch (error) {
         console.error('Fetch error:', error);
       } finally {
-        setIsLoading(false); // Set loading to false after fetching data
+        setIsLoading(false);
       }
     }
 
     fetchImages();
+
+    if (galleryRef.current) {
+      const lgOptions = {
+        speed: 500,
+        loop: true,
+        enableDrag: true,
+        showAfterLoad: true,
+        download: false,
+        thumbnail: true,
+        zoom: true,
+      };
+
+      lightGallery(galleryRef.current, {
+        ...lgOptions,
+        // Conditionally add enableTouch if it's supported in the version you are using
+        // enableTouch: true,
+      });
+    }
   }, []);
 
   if (isLoading) {
-    return <Loading />; // Render the loading component while data is being fetched
+    return <Loading />;
   }
 
   return (
     <div className="container mx-auto p-4">
       <Heading title="Gallery" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div
+        ref={galleryRef}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+      >
         {images.map((img, index) => (
-          <div
-            key={index}
-            className="relative hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
-          >
+          <a key={index} href={img.url} className="block">
             <Image
               src={`${img.url}?q_auto,f_auto`}
               layout="responsive"
@@ -55,7 +75,7 @@ export default function Gallery() {
               alt="Gallery Image"
               className="aspect-w-16 aspect-h-9 bg-black p-1 border-2 border-stroke rounded-md"
             />
-          </div>
+          </a>
         ))}
       </div>
     </div>
