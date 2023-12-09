@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "cloudinary": "^1.41.0",
+    "lightgallery": "^2.7.2",
     "next": "14.0.4",
     "next-cloudinary": "^5.11.0",
     "react": "^18",
