@@ -18,7 +18,7 @@ const Heading: FC<Props> = ({ title, iconClass }): JSX.Element => {
   const titleCaseText = toTitleCase(title);
 
   return (
-    <h1 className="text-center font-poppins text-4xl m-8 font-bold flex justify-center items-center">
+    <h1 className="text-center font-poppins text-4xl m-2 font-bold flex justify-center items-center">
       {iconClass && <i className={`${iconClass} mr-2`}></i>}
       {titleCaseText}
     </h1>
