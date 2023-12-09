@@ -1,12 +1,9 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 import Heading from '@/components/ui/Heading';
 import Loading from '@/components/ui/Loading';
-import lightGallery from 'lightgallery';
-import 'lightgallery/css/lightgallery.css';
-import 'lightgallery/css/lg-thumbnail.css';
-import 'lightgallery/css/lg-zoom.css';
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 interface ImageData {
   url: string;
@@ -15,7 +12,6 @@ interface ImageData {
 export default function Gallery() {
   const [images, setImages] = useState<ImageData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const galleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchImages() {
@@ -34,26 +30,12 @@ export default function Gallery() {
     }
 
     fetchImages();
-
-    if (galleryRef.current) {
-      const lgOptions = {
-        speed: 500,
-        loop: true,
-        enableDrag: true,
-        showAfterLoad: true,
-        download: false,
-        thumbnail: true,
-        zoom: true,
-        enableTouch: true,
-      };
-
-      lightGallery(galleryRef.current, {
-        ...lgOptions,
-        // Conditionally add enableTouch if it's supported in the version you are using
-        // enableTouch: true,
-      });
-    }
   }, []);
+
+  const galleryImages = images.map((img) => ({
+    original: `${img.url}?q_auto,f_auto`,
+    thumbnail: `${img.url}?q_auto,f_auto&w=100`,
+  }));
 
   if (isLoading) {
     return <Loading />;
@@ -61,24 +43,8 @@ export default function Gallery() {
 
   return (
     <div className="container mx-auto p-4">
-      <Heading title="Gallery" iconClass='fas fa-images' />
-      <div
-        ref={galleryRef}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-      >
-        {images.map((img, index) => (
-          <a key={index} href={img.url} className="block">
-            <Image
-              src={`${img.url}?q_auto,f_auto`}
-              layout="responsive"
-              width={300}
-              height={200}
-              alt="Gallery Image"
-              className="aspect-w-16 aspect-h-9 bg-black p-1 border-2 border-stroke rounded-md"
-            />
-          </a>
-        ))}
-      </div>
+      <Heading title="Gallery" iconClass="fas fa-images" />
+      <ImageGallery items={galleryImages} />
     </div>
   );
 }
