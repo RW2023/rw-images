@@ -44,6 +44,7 @@ export default function Gallery() {
         download: false,
         thumbnail: true,
         zoom: true,
+        enableTouch: true,
       };
 
       lightGallery(galleryRef.current, {
