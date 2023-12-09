@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Heading from '@/components/ui/Heading';
 
 // Define an interface for image data
 interface ImageData {
@@ -19,8 +20,9 @@ export default function Gallery() {
   }, [category]);
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-center space-x-4 mb-4">
+    <div className="container mx-auto p-4 h-screen">
+        <Heading title="Gallery" iconClass="fas fa-images" />
+      <div className="flex justify-center space-x-4 mb-4 flex-grow">
         {/* Buttons or links for categories */}
         <button type="submit" onClick={() => setCategory('nature')}>
           Nature
