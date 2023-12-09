@@ -13,6 +13,7 @@
     "axios": "^1.6.2",
     "cloudinary": "^1.41.0",
     "cloudinary-react": "^1.8.1",
+    "cors": "^2.8.5",
     "lightgallery": "^2.7.2",
     "next": "14.0.4",
     "next-cloudinary": "^5.11.0",
