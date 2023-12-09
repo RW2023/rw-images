@@ -60,7 +60,7 @@ export default function Gallery() {
 
   return (
     <div className="container mx-auto p-4">
-      <Heading title="Gallery" />
+      <Heading title="Gallery" iconClass='fas fa-images' />
       <div
         ref={galleryRef}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
