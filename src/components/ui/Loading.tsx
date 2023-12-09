@@ -9,8 +9,8 @@ const Loading: FC = (): JSX.Element => {
           <span className="m-2">
             <span className="loading loading-bars loading-lg"></span>
           </span>{' '}
-          Loading.....☝🏾its taking a bit if you can read this message.
-          Our Bad ☹️. any second now...⏱️
+          Loading.....The gallery will load momentarily☝🏾
+          Lots of pics. any second now...⏱️
         </p>
       </div>
     </div>
