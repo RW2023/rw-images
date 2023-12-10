@@ -39,28 +39,27 @@ export default function Home() {
   }
 
   return (
-    <div className="container flex flex-col flex-grow h-screen">
+    <div className="container flex flex-col flex-grow ">
       <Heading
-        title="Welcome to My Photography Portfolio"
-        iconClass="fas fa-camera-retro"
+        title="ryan wilson images"
       />
-      <p className="text-center my-4">
+      <p className="text-center my-4 text-xl p-4">
         Explore the world through my lens, featuring a diverse range of
         photography styles and subjects.
       </p>
 
-      <div className="my-6 flex items-center justify-center mb-4">
+      <div className="my-6 flex items-center justify-center -mb-6 p-4">
         <div className="w-4/5 mx-auto">
           <Heading title="Featured " iconClass="fas fa-star" />
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-1 border-1">
-            {images.slice(0, 8).map((img, index) => (
+          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-1 border-1">
+            {images.slice(0, 6).map((img, index) => (
               <Link href="/gallery" key={index} passHref
                 className="border-1 p-1 bg-black mx-auto">
                   <Image
                     src={img.url}
                     alt="Image thumbnail"
-                    width={150}
-                    height={150}
+                    width={200}
+                    height={250}
                   />
               </Link>
             ))}
