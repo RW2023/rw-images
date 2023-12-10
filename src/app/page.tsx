@@ -5,6 +5,7 @@ import Heading from '@/components/ui/Heading';
 import Image from 'next/image';
 import Link from 'next/link';
 import Loading from '@/components/ui/Loading'; // Ensure this is the correct path
+import SubHeading from '@/components/ui/SubHeading';
 
 type Image = {
   url: string;
@@ -50,7 +51,7 @@ export default function Home() {
 
       <div className="my-6 flex items-center justify-center mb-4">
         <div className="w-4/5 mx-auto">
-          <Heading title="Featured Images" iconClass="fas fa-star" />
+          <Heading title="Featured " iconClass="fas fa-star" />
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-1 border-1">
             {images.slice(0, 8).map((img, index) => (
               <Link href="/gallery" key={index} passHref
@@ -61,9 +62,11 @@ export default function Home() {
                     width={150}
                     height={150}
                   />
-                
               </Link>
             ))}
+          </div>
+          <div>
+            <SubHeading title="Ai Gallery" iconClass="fas fa-robot" />
           </div>
         </div>
       </div>

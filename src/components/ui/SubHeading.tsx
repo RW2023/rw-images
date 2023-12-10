@@ -15,7 +15,7 @@ const SubHeading: FC<Props> = ({ title, iconClass }): JSX.Element => {
   const titleCaseText = toTitleCase(title);
 
   return (
-    <h2 className="text-xl font-semibold font-poppins text-center mb-6">
+    <h2 className="text-xl font-semibold font-poppins text-center mb-6 mt-6">
       {iconClass && <i className={`${iconClass} mr-2`}></i>}
       {titleCaseText}
     </h2>
