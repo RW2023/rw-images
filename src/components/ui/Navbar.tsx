@@ -25,7 +25,7 @@ const Navbar = () => {
             className="font-semibold text-xl tracking-tight cursor-pointer"
           >
             <div>
-              <Heading title="r w" iconClass="fas fa-camera" />
+              <Heading title="r w" iconClass="fas fa-camera-retro" />
             </div>
           </span>
         </Link>
