@@ -1,16 +1,18 @@
 'use client';
+//src/components/ui/Heading.tsx
 import React, { useState, useEffect } from 'react';
 import Heading from '@/components/ui/Heading';
-import SubHeading from '@/components/ui/SubHeading';
 import Image from 'next/image';
+import Link from 'next/link';
+import Loading from '@/components/ui/Loading'; // Ensure this is the correct path
 
-// Define the image type for your application
 type Image = {
   url: string;
 };
 
 export default function Home() {
   const [images, setImages] = useState<Image[]>([]);
+  const [isLoading, setIsLoading] = useState(true); // Initialize loading state
 
   useEffect(() => {
     async function fetchImages() {
@@ -23,16 +25,22 @@ export default function Home() {
         setImages(data);
       } catch (error) {
         console.error('Fetch error:', error);
+      } finally {
+        setIsLoading(false); // Set loading to false after fetching data
       }
     }
 
     fetchImages();
   }, []);
 
+  if (isLoading) {
+    return <Loading />; // Show loading component while fetching data
+  }
+
   return (
     <div className="container flex flex-col flex-grow h-screen">
       <Heading
-        title="Welcome to My Photography"
+        title="Welcome to My Photography Portfolio"
         iconClass="fas fa-camera-retro"
       />
       <p className="text-center my-4">
@@ -40,19 +48,22 @@ export default function Home() {
         photography styles and subjects.
       </p>
 
-      {/* Thumbnail Sampling */}
-      <div className="my-6">
-        <Heading title="Featured Images" iconClass="fas fa-star" />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
-          {images.slice(0, 6).map((img, index) => (
-            <Image
-              key={index}
-              src={img.url}
-              alt="Image thumbnail"
-              width={100}
-              height={100}
-            />
-          ))}
+      <div className="my-6 h-screen flex items-center justify-center">
+        <div className="w-4/5 mx-auto">
+          <Heading title="Featured Images" iconClass="fas fa-star" />
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-1 border-1 ">
+            {images.slice(0, 8).map((img, index) => (
+              <Link href="/gallery" key={index} passHref
+                className="border-1 p-1 bg-black mx-auto">
+                  <Image
+                    src={img.url}
+                    alt="Image thumbnail"
+                    width={150}
+                    height={150}
+                  />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>
