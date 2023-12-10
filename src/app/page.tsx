@@ -51,7 +51,7 @@ export default function Home() {
       <div className="my-6 h-screen flex items-center justify-center">
         <div className="w-4/5 mx-auto">
           <Heading title="Featured Images" iconClass="fas fa-star" />
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-1 border-1 ">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-1 border-1 ">
             {images.slice(0, 8).map((img, index) => (
               <Link href="/gallery" key={index} passHref
                 className="border-1 p-1 bg-black mx-auto">
