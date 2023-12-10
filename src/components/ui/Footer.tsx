@@ -56,7 +56,7 @@ const Footer: FC<Props> = (props): JSX.Element => {
       </nav>
       <aside>
         <p>
-          Copyright © 2023 - All right reserved by{' '}
+          Copyright © 2023 - All rights reserved by{' '}
           <a href="https://nextport-alpha.vercel.app/" target="_blank" rel="noopener noreferrer">
             <span>Ryan Wilson</span>
           </a>
