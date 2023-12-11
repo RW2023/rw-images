@@ -60,7 +60,7 @@ export default function Home() {
           <Link href={'/gallery'}>
             <SubHeading title="photos " iconClass="fas fa-images" />
           </Link>
-          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-1">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {images.slice(0, 6).map((img, index) => (
               <Link href="/gallery" key={index} passHref>
                 <div className="border-1 border-buttonText rounded p-1 bg-black mx-auto">
@@ -82,7 +82,7 @@ export default function Home() {
           <Link href={'/ai'}>
             <SubHeading title="ai images" iconClass="fas fa-robot" />
           </Link>
-          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-1 border-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 border-1">
             {aiImages.slice(0, 6).map((img, index) => (
               <Link href="/ai" key={index} passHref>
                 <div className="border-1 border-buttonText rounded p-1 bg-black mx-auto">
