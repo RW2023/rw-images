@@ -89,7 +89,15 @@ const Navbar = () => {
               onClick={closeNavbar}
               className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:text-button hover:underline mr-4 cursor-pointer"
             >
-              <i className="fas fa-images mr-2"></i>Gallery
+              <i className="fas fa-images mr-2"></i>Photography
+            </span>
+          </Link>
+          <Link href="/ai">
+            <span
+              onClick={closeNavbar}
+              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:text-button hover:underline mr-4 cursor-pointer"
+            >
+              <i className="fas fa-robot mr-2"></i>AI
             </span>
           </Link>
           <Link href="/feedback">
