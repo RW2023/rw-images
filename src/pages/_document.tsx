@@ -1,4 +1,3 @@
-// _document.tsx src/pages/_document.tsx
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
@@ -8,6 +7,10 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width" />
+          <meta
+            name="description"
+            content="Explore the captivating world of Ryan Wilson's photography. Discover stunning landscapes, urban scenes, and creative portraits in this comprehensive photography portfolio."
+          />
           <meta name="author" content="Ryan Wilson" />
           <meta name="robots" content="index, follow" />
           <meta
