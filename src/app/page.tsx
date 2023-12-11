@@ -67,10 +67,11 @@ export default function Home() {
               <Link href="/gallery" key={index} passHref>
                 <div className="border-1 border-buttonText rounded p-1 bg-black mx-auto">
                   <Image
-                    src={img.url}
+                    src={`${img.url}?q_auto,f_auto,w_300,h_300,c_fill`}
                     alt="Image thumbnail"
                     width={300}
                     height={300}
+                    layout="responsive"
                   />
                 </div>
               </Link>
@@ -89,10 +90,11 @@ export default function Home() {
               <Link href="/ai" key={index} passHref>
                 <div className="border-1 border-buttonText rounded p-1 bg-black mx-auto">
                   <Image
-                    src={img.url}
+                    src={`${img.url}?q_auto,f_auto,w_300,h_300,c_fill`}
                     alt="AI Image thumbnail"
                     width={300}
                     height={300}
+                    layout="responsive"
                   />
                 </div>
               </Link>
