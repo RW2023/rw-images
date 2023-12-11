@@ -45,13 +45,15 @@ export default function Home() {
   return (
     <div className="container flex flex-col flex-grow ">
       <Heading title="ryan wilson images" />
-      <div className="card  glass mx-auto px-1 m-1 w-4/5">
-        <p className=" sm:text-lg text-center my-4 text-xl p-2">
-          Explore the world of images with me. From photography to generative
-          AI, I love to create and share. This is my little corner on the
-          interwebs. It will improve as I learn stuff. The point was an easy way
-          to update content without having to do some hacker type stuff just to
-          add a picture. I hope you enjoy!
+      <div className="card   mx-auto px-1  w-4/5 ">
+        <div className="card-title mx-auto">
+          <SubHeading title="explore images" iconClass="fas fa-images" />
+        </div>
+        <p className=" glass card-body sm:text-lg text-center my-4 text-xl p-2">
+          From photography to generative AI, I love to create and share. This is
+          my little corner on the interwebs. It will improve as I learn stuff.
+          The point was an easy way to update content without having to do some
+          hacker type stuff just to add a picture. I hope you enjoy!
         </p>
       </div>
 
