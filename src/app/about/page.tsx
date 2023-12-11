@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div className="bg-base-200 min-h-screen">
       <div className="container mx-auto p-6">
-        <Heading title="About the Gallery" iconClass="fas fa-camera-retro" />
+        <Heading title="About" iconClass="fas fa-info" />
 
         <div className="card bg-base-100 shadow-xl mb-4">
           <div className="card-body">
