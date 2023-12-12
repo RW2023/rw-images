@@ -44,7 +44,7 @@ export default function Home() {
   }
 
   return (
-    <div className="container flex flex-col flex-grow ">
+    <div className="container flex flex-col flex-grow mx-auto ">
       <Heading title="ryan wilson images" />
 
       <div className="my-6 mx-auto p-6">
