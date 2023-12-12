@@ -41,7 +41,7 @@ export default function Gallery() {
   return (
     <div className="container mx-auto p-4">
       <Heading title="AI Generated" iconClass="fas fa-robot" />
-      <Masonry columns={3} spacing={2} className="my-4">
+      <Masonry columns={3} spacing={1} className="my-4 justify-between">
         {images.map((img, index) => (
           <div key={index} className="image-item">
             <Image
