@@ -1,5 +1,5 @@
+//src/app/page.tsx
 'use client';
-//src/components/ui/Heading.tsx
 import React, { useState, useEffect } from 'react';
 import Heading from '@/components/ui/Heading';
 import Image from 'next/image';
@@ -7,13 +7,13 @@ import Link from 'next/link';
 import Loading from '@/components/ui/Loading';
 import SubHeading from '@/components/ui/SubHeading';
 
-type Image = {
+type ImageType = {
   url: string;
 };
 
 export default function Home() {
-  const [images, setImages] = useState<Image[]>([]);
-  const [aiImages, setAiImages] = useState<Image[]>([]);
+  const [images, setImages] = useState<ImageType[]>([]);
+  const [aiImages, setAiImages] = useState<ImageType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -24,10 +24,10 @@ export default function Home() {
         if (!response.ok || !aiResponse.ok) {
           throw new Error('Network response was not ok');
         }
-        const data = await response.json();
-        const aiData = await aiResponse.json();
-        setImages(data);
-        setAiImages(aiData);
+        const imageData = await response.json();
+        const aiImageData = await aiResponse.json();
+        setImages(imageData);
+        setAiImages(aiImageData);
       } catch (error) {
         console.error('Fetch error:', error);
       } finally {
@@ -45,11 +45,12 @@ export default function Home() {
   return (
     <div className="container flex flex-col flex-grow ">
       <Heading title="ryan wilson images" />
-      <div className="card   mx-auto px-1  w-4/5 ">
+
+      <div className="card mx-auto px-1 w-4/5 ">
         <div className="card-title mx-auto">
           <SubHeading title="explore images" iconClass="fas fa-images" />
         </div>
-        <p className=" glass card-body sm:text-lg text-center my-4 text-xl p-2">
+        <p className="glass card-body sm:text-lg text-center my-4 text-xl p-2">
           From photography to generative AI, I love to create and share. This is
           my little corner on the interwebs. It will improve as I learn stuff.
           The point was an easy way to update content without having to do some
@@ -57,7 +58,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="glass my-6 flex items-center justify-self-center mb-6 p-1 mx-auto bg-background border border-secondary rounded-md">
+      <div className="glass my-6 flex items-center justify-center mb-6 p-1 mx-auto bg-background border border-secondary rounded-md">
         <div className="w-4/5 mx-auto">
           <Link href={'/gallery'}>
             <SubHeading title="photos " iconClass="fas fa-images" />
@@ -80,7 +81,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="glass my-6 flex items-center justify-self-center mb-6 p-1 mx-auto bg-background border border-buttonText rounded-md">
+      <div className="glass my-6 flex items-center justify-center mb-6 p-1 mx-auto bg-background border border-buttonText rounded-md">
         <div className="w-4/5 mx-auto">
           <Link href={'/ai'}>
             <SubHeading title="ai images" iconClass="fas fa-robot" />
