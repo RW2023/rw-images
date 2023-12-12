@@ -47,33 +47,33 @@ export default function Home() {
     <div className="container flex flex-col flex-grow mx-auto ">
       <Heading title="ryan wilson images" />
 
-      <div className="my-6 mx-auto p-6">
+      <div className="my-6 mx-auto p-1  lg:p-10 ml-1">
         <Link href={'/gallery'}>
           <SubHeading title="photos " iconClass="fas fa-images" />
         </Link>
-        <Masonry columns={3} spacing={1}>
+        <Masonry columns={3} spacing={1} className="justify-between">
           {images.slice(0, 6).map((img, index) => (
             <div key={index} className="mx-auto">
               {/* <Link href="/gallery" passHref> */}
-                <Image
-                  src={`${img.url}?q_auto,f_auto`}
-                  alt="Image thumbnail"
-                  width={300}
-                  height={300}
-                  layout="responsive"
-                  className="rounded border border-stroke-500 bg-black drop-shadow-md m-1 p-1"
-                />
+              <Image
+                src={`${img.url}?q_auto,f_auto`}
+                alt="Image thumbnail"
+                width={300}
+                height={300}
+                layout="responsive"
+                className="rounded border border-stroke-500 bg-black drop-shadow-md m-1 p-1"
+              />
               {/* </Link> */}
             </div>
           ))}
         </Masonry>
       </div>
 
-      <div className="my-6 mx-auto p-6">
+      <div className="my-6 mx-auto p-1 justify-center lg:p-10 ml-1">
         <Link href={'/ai'}>
           <SubHeading title="ai images" iconClass="fas fa-robot" />
         </Link>
-        <Masonry columns={3} spacing={1}>
+        <Masonry columns={3} spacing={1} className="mx-auto justify-between">
           {aiImages.slice(0, 6).map((img, index) => (
             <div key={index}>
               <Link href="/ai" passHref>
@@ -83,7 +83,7 @@ export default function Home() {
                   width={300}
                   height={300}
                   layout="responsive"
-                  className="rounded-lg border border-stroke-500 p-1 bg-black drop-shadow-md"
+                  className="rounded border border-stroke-500 p-1 bg-black drop-shadow-md"
                 />
               </Link>
             </div>
