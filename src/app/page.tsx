@@ -52,7 +52,7 @@ export default function Home() {
           <SubHeading title="photos " iconClass="fas fa-images" />
         </Link>
         <Masonry columns={3} spacing={1}>
-          {images.slice(0, 9).map((img, index) => (
+          {images.slice(0, 6).map((img, index) => (
             <div key={index} className="mx-auto">
               {/* <Link href="/gallery" passHref> */}
                 <Image
@@ -61,7 +61,7 @@ export default function Home() {
                   width={300}
                   height={300}
                   layout="responsive"
-                  className="rounded-lg border border-stroke-500 bg-black drop-shadow-md m-1 p-1"
+                  className="rounded border border-stroke-500 bg-black drop-shadow-md m-1 p-1"
                 />
               {/* </Link> */}
             </div>
@@ -74,7 +74,7 @@ export default function Home() {
           <SubHeading title="ai images" iconClass="fas fa-robot" />
         </Link>
         <Masonry columns={3} spacing={1}>
-          {aiImages.slice(0, 9).map((img, index) => (
+          {aiImages.slice(0, 6).map((img, index) => (
             <div key={index}>
               <Link href="/ai" passHref>
                 <Image
