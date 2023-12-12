@@ -43,7 +43,7 @@ export default function Gallery() {
 
   return (
     <div className="container mx-auto p-4">
-      <Heading title="photography" iconClass="fas fa-images" />
+      <Heading title="Photography" iconClass="fas fa-images" />
       <ImageGallery items={galleryImages} thumbnailPosition="left" />
     </div>
   );
