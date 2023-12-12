@@ -1,11 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 // src/app/gallery/page.tsx
 'use client';
 import React, { useState, useEffect } from 'react';
 import Heading from '@/components/ui/Heading';
 import Loading from '@/components/ui/Loading';
-import Image from 'next/image';
 import Masonry from '@mui/lab/Masonry';
-import '@mui/lab/Masonry';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 interface ImageData {
   url: string;
@@ -14,6 +15,8 @@ interface ImageData {
 export default function Gallery() {
   const [images, setImages] = useState<ImageData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
     async function fetchImages() {
@@ -34,27 +37,41 @@ export default function Gallery() {
     fetchImages();
   }, []);
 
+const handleClick = (index: number) => {
+  setCurrentImage(index);
+  setIsOpen(true);
+};
+
+
   if (isLoading) {
     return <Loading />;
   }
 
   return (
-    <div className="container mx-auto p-4 justify-between">
+    <div className="container mx-auto p-4">
       <Heading title="Photography" iconClass="fas fa-images" />
       <Masonry columns={3} spacing={1} className="my-4 justify-between">
         {images.map((img, index) => (
-          <div key={index} className="image-item">
-            <Image
+          <div
+            key={index}
+            className="image-item"
+            onClick={() => handleClick(index)}
+          >
+            <img
               src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
               alt="Photography Image"
-              width={300}
-              height={300}
-              layout="responsive"
               className="rounded border border-stroke-500 bg-black drop-shadow-md m-1 p-1"
+              style={{ width: '100%', height: 'auto' }}
             />
           </div>
         ))}
       </Masonry>
+      <Lightbox
+        open={isOpen}
+        close={() => setIsOpen(false)}
+        slides={images.map((img) => ({ src: img.url }))}
+        current={currentImage}
+      />
     </div>
   );
 }
