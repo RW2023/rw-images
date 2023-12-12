@@ -33,8 +33,8 @@ export default function Gallery() {
   }, []);
 
   const galleryImages = images.map((img) => ({
-    original: `${img.url}?q_auto,f_auto,w_900,h_600,c_fill`, // Optimized for larger view
-    thumbnail: `${img.url}?q_auto,f_auto,w_100,h_100,c_fill`, // Optimized thumbnails
+    original: `${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`, // Optimized for larger view
+    thumbnail: `${img.url}?q_auto:good,f_auto,c_limit,w_100,dpr_auto`, // Optimized thumbnails
   }));
 
   if (isLoading) {

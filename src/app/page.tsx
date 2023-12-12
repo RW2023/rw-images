@@ -54,16 +54,14 @@ export default function Home() {
         <Masonry columns={3} spacing={1} className="justify-between">
           {images.slice(0, 6).map((img, index) => (
             <div key={index} className="mx-auto">
-              {/* <Link href="/gallery" passHref> */}
               <Image
-                src={`${img.url}?q_auto,f_auto`}
+                src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
                 alt="Image thumbnail"
                 width={300}
                 height={300}
                 layout="responsive"
                 className="rounded border border-stroke-500 bg-black drop-shadow-md m-1 p-1"
               />
-              {/* </Link> */}
             </div>
           ))}
         </Masonry>
@@ -78,7 +76,7 @@ export default function Home() {
             <div key={index}>
               <Link href="/ai" passHref>
                 <Image
-                  src={`${img.url}?q_auto,f_auto`}
+                  src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
                   alt="AI Image thumbnail"
                   width={300}
                   height={300}
