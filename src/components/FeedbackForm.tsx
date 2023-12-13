@@ -9,7 +9,7 @@ const FeedbackForm: FC<Props> = (props): JSX.Element => {
   return (
     <div>
       <Heading title="Feedback Form" />
-      <form className="form-control w-full max-w-xs flex flex-col justify-center m-auto">
+      <form className="form-control sm:w-5/6 w-full max-w-xs flex flex-col justify-center m-auto">
         <label className="label" htmlFor="name">
           <span className="label-text">
             <i className="fas fa-user mr-2"></i>Name
