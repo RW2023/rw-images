@@ -16,7 +16,7 @@ This project is a cutting-edge web platform 🚀 for showcasing a vibrant array 
 
 Want to contribute? Here's how:
 
-1. Clone the repository: `git clone [repository URL]`
+1. Clone the repository: `git clone https://github.com/RW2023/rw-images`
 2. Branch out: `git checkout -b new-feature`
 3. Commit your changes: `git commit -m "New feature"`
 4. Push and open a pull request.
@@ -24,7 +24,7 @@ Want to contribute? Here's how:
 ## Setup for Local Development 💻
 
 1. Ensure Node.js and npm are installed.
-2. Clone the project: `git clone [repository URL]`
+2. Clone the project: `git clone https://github.com/RW2023/rw-images`
 3. Install dependencies: `npm install`
 4. Fire up the server: `npm run dev`
 
