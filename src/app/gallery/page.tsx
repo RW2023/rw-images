@@ -15,8 +15,8 @@ interface ImageData {
 export default function Gallery() {
   const [images, setImages] = useState<ImageData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   useEffect(() => {
     async function fetchImages() {
@@ -37,11 +37,10 @@ export default function Gallery() {
     fetchImages();
   }, []);
 
-const handleClick = (index: number) => {
-  setCurrentImage(index);
-  setIsOpen(true);
-};
-
+  const handleImageClick = (index: number) => {
+    setCurrentSlideIndex(index);
+    setLightboxOpen(true);
+  };
 
   if (isLoading) {
     return <Loading />;
@@ -50,13 +49,9 @@ const handleClick = (index: number) => {
   return (
     <div className="container mx-auto p-4">
       <Heading title="Photography" iconClass="fas fa-images" />
-      <Masonry columns={3} spacing={1} className="my-4 justify-between">
+      <Masonry columns={3} spacing={1} className="my-4">
         {images.map((img, index) => (
-          <div
-            key={index}
-            className="image-item"
-            onClick={() => handleClick(index)}
-          >
+          <div key={index} className="image-item" onClick={() => handleImageClick(index)}>
             <img
               src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
               alt="Photography Image"
@@ -66,12 +61,14 @@ const handleClick = (index: number) => {
           </div>
         ))}
       </Masonry>
-      <Lightbox
-        open={isOpen}
-        close={() => setIsOpen(false)}
-        slides={images.map((img) => ({ src: img.url }))}
-        current={currentImage}
-      />
+      {lightboxOpen && (
+        <Lightbox
+          open={lightboxOpen}
+          close={() => setLightboxOpen(false)}
+          slides={images.map(img => ({ src: img.url }))}
+          index={currentSlideIndex}
+        />
+      )}
     </div>
   );
 }
