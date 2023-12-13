@@ -12,7 +12,28 @@ const Footer: FC<Props> = (props): JSX.Element => {
         <Link href={'/feedback'}>Feedback</Link>
       </nav>
       <nav>
-        <div className="grid grid-flow-col gap-4">{/* Social icons */}</div>
+        <div className="grid grid-flow-col gap-4 text-3xl">
+          {/* GitHub */}
+          <a
+            href="https://github.com/RW2023"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <i className="fab fa-github"></i>
+            <span className="sr-only">GitHub</span>
+          </a>
+          {/* Instagram */}
+          <a
+            href="https://www.instagram.com/ryanwilsonimages/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <i className="fab fa-instagram"></i>
+            <span className="sr-only">Instagram</span>
+          </a>
+        </div>
       </nav>
       <aside>
         <p>
