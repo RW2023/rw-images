@@ -7,7 +7,7 @@ import Loading from '@/components/ui/Loading';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import Masonry from '@mui/lab/Masonry';
-import { Button } from '@mui/material';
+
 
 interface ImageData {
   url: string;
