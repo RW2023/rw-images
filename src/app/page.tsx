@@ -46,10 +46,10 @@ export default function Home() {
   return (
     <div className="container flex flex-col flex-grow mx-auto ">
       <Heading title="ryan wilson images" />
-
+<SubHeading title='explore galleries' iconClass='fas fa-images' />
       <div className="my-6 mx-auto p-1  lg:p-10 ml-1">
         <Link href={'/gallery'}>
-          <SubHeading title="photos " iconClass="fas fa-images" />
+          <SubHeading title="photography " iconClass="fas fa-images" />
         </Link>
         <Masonry columns={3} spacing={1} className="justify-between">
           {images.slice(0, 6).map((img, index) => (
