@@ -23,7 +23,7 @@ export default async function handler(
     const { resources } = await cloudinary.search
       .expression('folder:Photography/portfolio')
       .sort_by('public_id', 'desc')
-      .max_results(50)
+      .max_results(60)
       .execute();
 
     const images = resources.map((file: CloudinaryImage) => ({
