@@ -1,4 +1,4 @@
-//src/app/page.tsx
+// src/app/page.tsx
 'use client';
 import React, { useState, useEffect } from 'react';
 import Heading from '@/components/ui/Heading';
@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Loading from '@/components/ui/Loading';
 import SubHeading from '@/components/ui/SubHeading';
+import Masonry from '@mui/lab/Masonry';
 
 type ImageType = {
   url: string;
@@ -43,65 +44,49 @@ export default function Home() {
   }
 
   return (
-    <div className="container flex flex-col flex-grow ">
+    <div className="container flex flex-col flex-grow mx-auto ">
       <Heading title="ryan wilson images" />
-
-      <div className="card mx-auto px-1 w-4/5 ">
-        <div className="card-title mx-auto">
-          <SubHeading title="explore images" iconClass="fas fa-images" />
-        </div>
-        <p className="glass card-body sm:text-lg text-center my-4 text-xl p-2">
-          From photography to generative AI, I love to create and share. This is
-          my little corner on the interwebs. It will improve as I learn stuff.
-          The point was an easy way to update content without having to do some
-          hacker type stuff just to add a picture. I hope you enjoy!
-        </p>
+<SubHeading title='explore galleries' iconClass='fas fa-images' />
+      <div className="my-6 mx-auto p-1  lg:p-10 ml-1">
+        <Link href={'/gallery'}>
+          <SubHeading title="photography " iconClass="fas fa-images" />
+        </Link>
+        <Masonry columns={3} spacing={1} className="justify-between">
+          {images.slice(0, 6).map((img, index) => (
+            <div key={index} className="mx-auto">
+              <Image
+                src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
+                alt="Image thumbnail"
+                width={300}
+                height={300}
+                layout="responsive"
+                className="rounded border border-stroke-500 bg-black drop-shadow-md m-1 p-1"
+              />
+            </div>
+          ))}
+        </Masonry>
       </div>
 
-      <div className="glass my-6 flex items-center justify-center mb-6 p-1 mx-auto bg-background border border-secondary rounded-md">
-        <div className="w-4/5 mx-auto">
-          <Link href={'/gallery'}>
-            <SubHeading title="photos " iconClass="fas fa-images" />
-          </Link>
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            {images.slice(0, 6).map((img, index) => (
-              <Link href="/gallery" key={index} passHref>
-                <div className="border-1 border-buttonText rounded p-1 bg-black mx-auto">
-                  <Image
-                    src={`${img.url}?q_auto,f_auto,w_300,h_300,c_fill`}
-                    alt="Image thumbnail"
-                    width={300}
-                    height={300}
-                    layout="responsive"
-                  />
-                </div>
+      <div className="my-6 mx-auto p-1 justify-center lg:p-10 ml-1">
+        <Link href={'/ai'}>
+          <SubHeading title="ai images" iconClass="fas fa-robot" />
+        </Link>
+        <Masonry columns={3} spacing={1} className="mx-auto justify-between">
+          {aiImages.slice(0, 6).map((img, index) => (
+            <div key={index}>
+              <Link href="/ai" passHref>
+                <Image
+                  src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
+                  alt="AI Image thumbnail"
+                  width={300}
+                  height={300}
+                  layout="responsive"
+                  className="rounded border border-stroke-500 p-1 bg-black drop-shadow-md"
+                />
               </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="glass my-6 flex items-center justify-center mb-6 p-1 mx-auto bg-background border border-buttonText rounded-md">
-        <div className="w-4/5 mx-auto">
-          <Link href={'/ai'}>
-            <SubHeading title="ai images" iconClass="fas fa-robot" />
-          </Link>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 border-1">
-            {aiImages.slice(0, 6).map((img, index) => (
-              <Link href="/ai" key={index} passHref>
-                <div className="border-1 border-buttonText rounded p-1 bg-black mx-auto">
-                  <Image
-                    src={`${img.url}?q_auto,f_auto,w_300,h_300,c_fill`}
-                    alt="AI Image thumbnail"
-                    width={300}
-                    height={300}
-                    layout="responsive"
-                  />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+            </div>
+          ))}
+        </Masonry>
       </div>
     </div>
   );
