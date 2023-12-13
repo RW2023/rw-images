@@ -44,7 +44,7 @@ export default function Home() {
   }
 
   return (
-    <div className="container flex flex-col flex-grow mx-auto ">
+    <div className="container flex flex-col flex-grow mx-auto min-h-screen">
       <Heading title="ryan wilson images" />
 <SubHeading title='explore galleries' iconClass='fas fa-images' />
       <div className="my-6 mx-auto p-1  lg:p-10 ml-1">
