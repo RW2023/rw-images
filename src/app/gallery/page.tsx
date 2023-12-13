@@ -49,7 +49,7 @@ export default function Gallery() {
   return (
     <div className="container mx-auto p-4">
       <Heading title="Photography" iconClass="fas fa-images" />
-      <Masonry columns={3} spacing={1} className="my-4">
+      <Masonry columns={3} spacing={1} className="my-4 justify-between">
         {images.map((img, index) => (
           <div key={index} className="image-item" onClick={() => handleImageClick(index)}>
             <img
