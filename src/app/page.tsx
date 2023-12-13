@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Loading from '@/components/ui/Loading';
 import SubHeading from '@/components/ui/SubHeading';
 import Masonry from '@mui/lab/Masonry';
+import Button from '@/components/ui/Button';
 
 type ImageType = {
   url: string;
@@ -46,10 +47,11 @@ export default function Home() {
   return (
     <div className="container flex flex-col flex-grow mx-auto min-h-screen">
       <Heading title="ryan wilson images" />
-<SubHeading title='explore galleries' iconClass='fas fa-images' />
+      <SubHeading title="explore galleries" iconClass="fas fa-images" />
       <div className="my-6 mx-auto p-1  lg:p-10 ml-1">
+        <SubHeading title="photo galleries" iconClass="fas fa-camera" />
         <Link href={'/gallery'}>
-          <SubHeading title="photography " iconClass="fas fa-images" />
+          <Button title="Photos" modifier="btn-ghost" />
         </Link>
         <Masonry columns={3} spacing={1} className="justify-between">
           {images.slice(0, 6).map((img, index) => (
@@ -68,9 +70,11 @@ export default function Home() {
       </div>
 
       <div className="my-6 mx-auto p-1 justify-center lg:p-10 ml-1">
+        <SubHeading title="a i galleries" iconClass="fas fa-robot" />
         <Link href={'/ai'}>
-          <SubHeading title="ai images" iconClass="fas fa-robot" />
+          <Button title="Images" modifier="btn-ghost" />
         </Link>
+
         <Masonry columns={3} spacing={1} className="mx-auto justify-between">
           {aiImages.slice(0, 6).map((img, index) => (
             <div key={index}>
