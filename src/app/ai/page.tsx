@@ -2,7 +2,7 @@
 // src/app/ai/page.tsx
 'use client';
 import React, { useState, useEffect } from 'react';
-import Heading from '@/components/ui/Heading';
+import SubHeading from '@/components/ui/SubHeading';
 import Loading from '@/components/ui/Loading';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
@@ -48,7 +48,7 @@ export default function Gallery() {
 
   return (
     <div className="container mx-auto p-4">
-      <Heading title="AI Generated" iconClass="fas fa-robot" />
+      <SubHeading title="AI Generated" iconClass="fas fa-robot" />
       <Masonry columns={3} spacing={1} className="my-4 justify-between">
         {images.map((img, index) => (
           <div
