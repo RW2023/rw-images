@@ -2,11 +2,11 @@
 // src/app/gallery/page.tsx
 'use client';
 import React, { useState, useEffect } from 'react';
-import Heading from '@/components/ui/Heading';
 import Loading from '@/components/ui/Loading';
 import Masonry from '@mui/lab/Masonry';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+import SubHeading from '@/components/ui/SubHeading';
 
 interface ImageData {
   url: string;
@@ -48,7 +48,7 @@ export default function Gallery() {
 
   return (
     <div className="container mx-auto p-4">
-      <Heading title="Photography" iconClass="fas fa-images" />
+      <SubHeading title="Photography" iconClass="fas fa-images" />
       <Masonry columns={3} spacing={1} className="my-4 justify-between">
         {images.map((img, index) => (
           <div key={index} className="image-item" onClick={() => handleImageClick(index)}>
