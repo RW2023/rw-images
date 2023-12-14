@@ -26,6 +26,18 @@ const fadeInVariant = {
   animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
+const fadeInFromRight = {
+  offscreen: { opacity: 0, x: 50 },
+  onscreen: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'tween',
+      duration: 1,
+    },
+  },
+};
+
 type ImageType = {
   url: string;
 };
@@ -40,6 +52,7 @@ export default function Home() {
       try {
         const response = await fetch('/api/images');
         const aiResponse = await fetch('/api/ai');
+        
         if (!response.ok || !aiResponse.ok) {
           throw new Error('Network response was not ok');
         }
@@ -60,6 +73,7 @@ export default function Home() {
   if (isLoading) {
     return <Loading />;
   }
+  
 
   return (
     <div className="container flex flex-col flex-grow mx-auto min-h-screen">
@@ -75,32 +89,55 @@ export default function Home() {
               <i className="fa fa-camera-retro"></i> Photography
             </h2>
             <div>
-              <p>
-                I am an amateur photographer and I enjoy capturing images with
-                my Olympus Micro 4/3. My photography journey is a personal
-                exploration, where the marvel of technology - the camera -
-                becomes a tool for simple yet meaningful artistic expression.
-                It&apos;s a hobby that brings me joy and a unique way to see the
-                world.
-              </p>
-              <br />
-              <p>
-                <i className="fa fa-cogs"></i> As a nerd I&apos;ve always loved
-                technology and machines. Cameras and{' '}
-                <i className="fa fa-brain"></i> generative AI have provided an
-                avenue for us stick figure Picasso&apos;s. These tools allow me,
-                and others like me, to creatively express ourselves in
-                unexpected ways, blending the technical with the artistic.
-              </p>
-              <br />
-              <p>
-                <i className="fa fa-road"></i>The journey through photography,
-                enhanced by technology, has been enlightening. It&apos;s not
-                just about capturing images; it&apos;s about discovering a new
-                way to express myself. This intersection of technology and art
-                has gently reshaped my perspective on creativity and what it
-                means to engage in the arts in our digital era.
-              </p>
+              <div>
+                <motion.div
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true }}
+                  variants={fadeInFromRight}
+                >
+                  <p>
+                    I am an amateur photographer and I enjoy capturing images
+                    with my Olympus Micro 4/3. My photography journey is a
+                    personal exploration, where the marvel of technology - the
+                    camera - becomes a tool for simple yet meaningful artistic
+                    expression. It&apos;s a hobby that brings me joy and a unique way
+                    to see the world.
+                  </p>
+                </motion.div>
+                <br />
+                <motion.div
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true }}
+                  variants={fadeInFromRight}
+                >
+                  <p>
+                    <i className="fa fa-cogs"></i> As a nerd I&apos;ve always loved
+                    technology and machines. Cameras and{' '}
+                    <i className="fa fa-brain"></i> generative AI have provided
+                    an avenue for us stick figure Picasso&apos;s. These tools allow
+                    me, and others like me, to creatively express ourselves in
+                    unexpected ways, blending the technical with the artistic.
+                  </p>
+                </motion.div>
+                <br />
+                <motion.div
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true }}
+                  variants={fadeInFromRight}
+                >
+                  <p>
+                    <i className="fa fa-road"></i>The journey through
+                    photography, enhanced by technology, has been enlightening.
+                    It&apos;s not just about capturing images; it&apos;s about discovering
+                    a new way to express myself. This intersection of technology
+                    and art has gently reshaped my perspective on creativity and
+                    what it means to engage in the arts in our digital era.
+                  </p>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
