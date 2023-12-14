@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="grid grid-flow-col gap-4 text-3xl">
           {/* GitHub */}
           <a
-            href="https://github.com/RW2023"
+            href="https://github.com/RW2023/rw-images"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
