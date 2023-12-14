@@ -57,7 +57,7 @@ export default function Home() {
               <i className="fa fa-camera-retro"></i> Photography
             </h2>
             <div>
-              <p >
+              <p>
                 I am an amateur photographer and I enjoy capturing images with
                 my Olympus Micro 4/3. My photography journey is a personal
                 exploration, where the marvel of technology - the camera -
@@ -67,23 +67,26 @@ export default function Home() {
               </p>
               <br />
               <p>
-                <i className="fa fa-cogs"></i> As a nerd  I&apos;ve always loved technology and machines. Cameras and{' '}
-                <i className="fa fa-brain"></i> generative AI have provided an avenue for us stick figure Picasso&apos;s. These tools allow
-                me, and others like me, to creatively express ourselves in
+                <i className="fa fa-cogs"></i> As a nerd I&apos;ve always loved
+                technology and machines. Cameras and{' '}
+                <i className="fa fa-brain"></i> generative AI have provided an
+                avenue for us stick figure Picasso&apos;s. These tools allow me,
+                and others like me, to creatively express ourselves in
                 unexpected ways, blending the technical with the artistic.
               </p>
               <br />
               <p>
-                <i className="fa fa-road"></i>The journey through photography, enhanced by technology, has
-                been enlightening. It&apos;s not just about capturing images;
-                it&apos;s about discovering a new way to express myself. This
-                intersection of technology and art has gently reshaped my
-                perspective on creativity and what it means to engage in the
-                arts in our digital era.
+                <i className="fa fa-road"></i>The journey through photography,
+                enhanced by technology, has been enlightening. It&apos;s not
+                just about capturing images; it&apos;s about discovering a new
+                way to express myself. This intersection of technology and art
+                has gently reshaped my perspective on creativity and what it
+                means to engage in the arts in our digital era.
               </p>
             </div>
           </div>
         </div>
+        <SubHeading title="photo gallery" iconClass="fas fa-camera" />
         <Link href={'/gallery'}>
           <Button title="Photos" modifier="btn-ghost" />
         </Link>
@@ -104,7 +107,7 @@ export default function Home() {
       </div>
 
       <div className="my-1 mx-auto p-1 justify-center lg:p-10 ml-1">
-        <SubHeading title="a i galleries" iconClass="fas fa-robot" />
+        <SubHeading title="a i gallery" iconClass="fas fa-robot" />
         <Link href={'/ai'}>
           <Button title="Images" modifier="btn-ghost" />
         </Link>
@@ -112,16 +115,14 @@ export default function Home() {
         <Masonry columns={3} spacing={1} className="mx-auto justify-between">
           {aiImages.slice(0, 6).map((img, index) => (
             <div key={index}>
-              <Link href="/ai" passHref>
-                <Image
-                  src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
-                  alt="AI Image thumbnail"
-                  width={300}
-                  height={300}
-                  layout="responsive"
-                  className="rounded border border-stroke-500 p-1 bg-black drop-shadow-md"
-                />
-              </Link>
+              <Image
+                src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
+                alt="AI Image thumbnail"
+                width={300}
+                height={300}
+                layout="responsive"
+                className="rounded border border-stroke-500 p-1 bg-black drop-shadow-md"
+              />
             </div>
           ))}
         </Masonry>
