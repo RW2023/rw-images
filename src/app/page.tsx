@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Loading from '@/components/ui/Loading';
 import SubHeading from '@/components/ui/SubHeading';
 import Masonry from '@mui/lab/Masonry';
+import Button from '@/components/ui/Button';
 
 type ImageType = {
   url: string;
@@ -44,12 +45,47 @@ export default function Home() {
   }
 
   return (
-    <div className="container flex flex-col flex-grow mx-auto ">
+    <div className="container flex flex-col flex-grow mx-auto min-h-screen">
       <Heading title="ryan wilson images" />
-<SubHeading title='explore galleries' iconClass='fas fa-images' />
-      <div className="my-6 mx-auto p-1  lg:p-10 ml-1">
+      <SubHeading title="explore galleries" iconClass="fas fa-images" />
+
+      <div className="my-1 mx-auto p-1  lg:p-10 ml-1">
+        {/* <SubHeading title="photo galleries" iconClass="fas fa-camera" /> */}
+        <div className=" bg-black shadow-xl flex flex-col justify-center place-items-start sm:-m-1 rounded glass">
+          <div className="card-body text-xl flex flex-col">
+            <h2 className="card-title">
+              <i className="fa fa-camera-retro"></i> Photography
+            </h2>
+            <div>
+              <p >
+                I am an amateur photographer and I enjoy capturing images with
+                my Olympus Micro 4/3. My photography journey is a personal
+                exploration, where the marvel of technology - the camera -
+                becomes a tool for simple yet meaningful artistic expression.
+                It&apos;s a hobby that brings me joy and a unique way to see the
+                world.
+              </p>
+              <br />
+              <p>
+                <i className="fa fa-cogs"></i> As a nerd  I&apos;ve always loved technology and machines. Cameras and{' '}
+                <i className="fa fa-brain"></i> generative AI have provided an avenue for us stick figure Picasso&apos;s. These tools allow
+                me, and others like me, to creatively express ourselves in
+                unexpected ways, blending the technical with the artistic.
+              </p>
+              <br />
+              <p>
+                <i className="fa fa-road"></i>The journey through photography, enhanced by technology, has
+                been enlightening. It&apos;s not just about capturing images;
+                it&apos;s about discovering a new way to express myself. This
+                intersection of technology and art has gently reshaped my
+                perspective on creativity and what it means to engage in the
+                arts in our digital era.
+              </p>
+            </div>
+          </div>
+        </div>
         <Link href={'/gallery'}>
-          <SubHeading title="photography " iconClass="fas fa-images" />
+          <Button title="Photos" modifier="btn-ghost" />
         </Link>
         <Masonry columns={3} spacing={1} className="justify-between">
           {images.slice(0, 6).map((img, index) => (
@@ -67,10 +103,12 @@ export default function Home() {
         </Masonry>
       </div>
 
-      <div className="my-6 mx-auto p-1 justify-center lg:p-10 ml-1">
+      <div className="my-1 mx-auto p-1 justify-center lg:p-10 ml-1">
+        <SubHeading title="a i galleries" iconClass="fas fa-robot" />
         <Link href={'/ai'}>
-          <SubHeading title="ai images" iconClass="fas fa-robot" />
+          <Button title="Images" modifier="btn-ghost" />
         </Link>
+
         <Masonry columns={3} spacing={1} className="mx-auto justify-between">
           {aiImages.slice(0, 6).map((img, index) => (
             <div key={index}>

@@ -1,14 +1,14 @@
 'use client';
 import { FC } from 'react';
-import Heading from '@/components/ui/Heading';
+import SubHeading from '@/components/ui/SubHeading';
 
 interface Props {}
 
 const Contact: FC<Props> = (props): JSX.Element => {
   return (
-    <div className="flex flex-col justify-center form-control w-full max-w-xs  m-auto">
-      <Heading title="contact me" />
-      <form className="form-control w-full max-w-xs">
+    <div >
+      <SubHeading title="contact me" />
+      <form className="form-control sm:w-5/6 w-full max-w-xs flex flex-col justify-center m-auto">
         <label className="label" htmlFor="name">
           <span className="label-text">
             <i className="fas fa-user mr-2"></i>Name

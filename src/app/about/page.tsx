@@ -8,8 +8,8 @@ export default function About() {
       <div className="container mx-auto p-6">
         <Heading title="About" iconClass="fas fa-info" />
 
-        <div className="card bg-base-100 shadow-xl mb-4 glass">
-          <div className="glass card-body text-headline bg-black">
+        <div className="card shadow-xl mb-4 glass bg-black">
+          <div className="glass card-body text-headline">
             <SubHeading
               title="The Journey of Capturing Moments"
               iconClass="fas fa-camera"
@@ -23,9 +23,9 @@ export default function About() {
           </div>
         </div>
 
-        <div className="card bg-base-100 shadow-xl mb-4 glass">
+        <div className="card  shadow-xl mb-4 glass bg-black">
           <div className="card-body">
-            <Heading
+            <SubHeading
               title="A Blend of Art and Technology"
               iconClass="fas fa-paint-brush"
             />
@@ -38,9 +38,12 @@ export default function About() {
           </div>
         </div>
 
-        <div className="card bg-base-100 shadow-xl mb-4 glass">
+        <div className="card shadow-xl mb-4 glass bg-black">
           <div className="card-body">
-            <Heading title="Coding Meets Creativity" iconClass="fas fa-code" />
+            <SubHeading
+              title="Coding Meets Creativity"
+              iconClass="fas fa-code"
+            />
             <p>
               Building this site has been a personal exploration in web
               development and design, intertwining my coding practice with my
@@ -50,9 +53,12 @@ export default function About() {
           </div>
         </div>
 
-        <div className="card bg-base-100 shadow-xl mb-6 glass">
+        <div className="card bg-black shadow-xl mb-6 glass">
           <div className="card-body">
-            <Heading title="A Continuous Evolution" iconClass="fas fa-cogs" />
+            <SubHeading
+              title="A Continuous Evolution"
+              iconClass="fas fa-cogs"
+            />
             <p>
               As my skills in both photography and coding grow, I look forward
               to evolving this site further. It&apos;s more than just a gallery;
