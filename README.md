@@ -1,4 +1,4 @@
-# Project ReadMe: Photography and AI Art Showcase Platform 🌐📸
+# Photography and AI Art Showcase Platform 🌐📸
 
 ## Overview
 
