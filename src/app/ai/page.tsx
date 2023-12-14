@@ -13,17 +13,6 @@ interface ImageData {
   url: string;
 }
 
-// Define the hover animation variants
-const hoverVariant = {
-  hover: {
-    scale: 1.05,
-    transition: {
-      type: 'spring',
-      stiffness: 300,
-    },
-  },
-};
-
 export default function Gallery() {
   const [images, setImages] = useState<ImageData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -54,13 +43,45 @@ export default function Gallery() {
     setLightboxOpen(true);
   };
 
+  const imageVariants = {
+    offscreen: { opacity: 0, x: 20 },
+    onscreen: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'tween',
+        duration: 0.8,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
+  const flyInFromRight = {
+    offscreen: { x: 100, opacity: 0 },
+    onscreen: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'tween',
+        duration: 1,
+      },
+    },
+  };
+
   if (isLoading) {
     return <Loading />;
   }
 
   return (
     <div className="container mx-auto p-4">
-      <SubHeading title="AI Generated" iconClass="fas fa-robot" />
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true }}
+        variants={flyInFromRight}
+      >
+        <SubHeading title="AI Generated" iconClass="fas fa-robot" />
+      </motion.div>
       <Masonry columns={3} spacing={1} className="my-4 justify-between">
         {images.map((img, index) => (
           <motion.div
@@ -68,7 +89,10 @@ export default function Gallery() {
             className="image-item"
             onClick={() => handleImageClick(index)}
             whileHover="hover"
-            variants={hoverVariant}
+            variants={imageVariants}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true }}
           >
             <img
               src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
