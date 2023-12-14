@@ -3,7 +3,7 @@ import React from 'react';
 
 const Loading = () => {
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center">
       <div className="text-center">
         <p className="text-3xl">
           <span className="m-2">
