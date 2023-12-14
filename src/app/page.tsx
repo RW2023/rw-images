@@ -1,6 +1,6 @@
-// src/app/page.tsx
 'use client';
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Heading from '@/components/ui/Heading';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,6 +8,17 @@ import Loading from '@/components/ui/Loading';
 import SubHeading from '@/components/ui/SubHeading';
 import Masonry from '@mui/lab/Masonry';
 import Button from '@/components/ui/Button';
+
+// Define animation variants for hover and bounce
+const hoverVariant = {
+  hover: {
+    scale: 1.05,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+    },
+  },
+};
 
 type ImageType = {
   url: string;
@@ -49,8 +60,7 @@ export default function Home() {
       <Heading title="ryan wilson images" />
       <SubHeading title="explore galleries" iconClass="fas fa-images" />
 
-      <div className="my-1 mx-auto p-1  lg:p-10 ml-1">
-        {/* <SubHeading title="photo galleries" iconClass="fas fa-camera" /> */}
+      <div className="my-1 mx-auto p-1 lg:p-10 ml-1">
         <div className=" bg-black shadow-xl flex flex-col justify-center place-items-start sm:-m-1 rounded glass">
           <div className="card-body text-xl flex flex-col">
             <h2 className="card-title">
@@ -86,13 +96,19 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         <SubHeading title="photo gallery" iconClass="fas fa-camera" />
         <Link href={'/gallery'}>
           <Button title="Photos" modifier="btn-ghost" />
         </Link>
         <Masonry columns={3} spacing={1} className="justify-between">
           {images.slice(0, 6).map((img, index) => (
-            <div key={index} className="mx-auto">
+            <motion.div
+              key={index}
+              className="mx-auto"
+              whileHover="hover"
+              variants={hoverVariant}
+            >
               <Image
                 src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
                 alt="Image thumbnail"
@@ -101,7 +117,7 @@ export default function Home() {
                 layout="responsive"
                 className="rounded border border-stroke-500 bg-black drop-shadow-md m-1 p-1"
               />
-            </div>
+            </motion.div>
           ))}
         </Masonry>
       </div>
@@ -111,10 +127,9 @@ export default function Home() {
         <Link href={'/ai'}>
           <Button title="Images" modifier="btn-ghost" />
         </Link>
-
         <Masonry columns={3} spacing={1} className="mx-auto justify-between">
           {aiImages.slice(0, 6).map((img, index) => (
-            <div key={index}>
+            <motion.div key={index} whileHover="hover" variants={hoverVariant}>
               <Image
                 src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
                 alt="AI Image thumbnail"
@@ -123,7 +138,7 @@ export default function Home() {
                 layout="responsive"
                 className="rounded border border-stroke-500 p-1 bg-black drop-shadow-md"
               />
-            </div>
+            </motion.div>
           ))}
         </Masonry>
       </div>
