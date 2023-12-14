@@ -1,15 +1,13 @@
-import { FC } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
-interface Props {}
-
-const Footer: FC<Props> = (props): JSX.Element => {
+const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-base-300 text-base-content rounded mt-1">
       <nav className="grid grid-flow-col gap-4">
-        <Link href={'/about'}>About</Link>
-        <Link href={'/contact'}>Contact</Link>
-        <Link href={'/feedback'}>Feedback</Link>
+        <Link href="/about">About</Link>
+        <Link href="/contact">Contact</Link>
+        <Link href="/feedback">Feedback</Link>
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4 text-3xl">

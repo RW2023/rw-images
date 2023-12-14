@@ -1,7 +1,7 @@
 'use client';
-import { FC } from 'react';
+import React from 'react';
 
-const Loading: FC = (): JSX.Element => {
+const Loading = () => {
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="text-center">
@@ -9,8 +9,8 @@ const Loading: FC = (): JSX.Element => {
           <span className="m-2">
             <span className="loading loading-bars loading-lg"></span>
           </span>{' '}
-          Loading.....The gallery will load momentarily☝🏾
-          Lots of pics. any second now...⏱️
+          Loading.....The gallery will load momentarily☝🏾 Lots of pics. any
+          second now...⏱️
         </p>
       </div>
     </div>
