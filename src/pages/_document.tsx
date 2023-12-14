@@ -5,8 +5,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width" />
           <meta
             name="description"
             content="Explore the captivating world of Ryan Wilson's photography. Discover stunning landscapes, urban scenes, and creative portraits in this comprehensive photography portfolio."
