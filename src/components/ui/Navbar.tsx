@@ -1,8 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Heading from '@/components/ui/Heading';
+import SubHeading from './SubHeading';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +12,9 @@ const Navbar = () => {
   const closeNavbar = () => {
     setIsOpen(false);
   };
+
+  // Construct Cloudinary URL for your image with transformations
+  const imageUrl = `https://res.cloudinary.com/wildev/image/upload/w_40,h_40,c_fill,g_face,r_max/sites/RW%20Images/me_yzjh2n.jpg`;
 
   return (
     <nav
@@ -24,8 +28,19 @@ const Navbar = () => {
             onClick={closeNavbar}
             className="font-semibold text-xl tracking-tight cursor-pointer"
           >
-            <div>
-              <Heading title="r w" iconClass="fas fa-camera-retro" />
+            <div className="flex items-center">
+              {' '}
+              {/* Flexbox container */}
+              {/* Image */}
+              <img
+                src={imageUrl}
+                alt="Ryan Wilson"
+                width="40"
+                height="40"
+                style={{ borderRadius: '50%', marginRight: '10px' }} // Add CSS for round image and margin
+              />
+              {/* SubHeading */}
+              <SubHeading title="Ryan Wilson" iconClass="fa fas-person" />
             </div>
           </span>
         </Link>
@@ -35,12 +50,11 @@ const Navbar = () => {
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           className="text-4xl inline-flex items-center justify-center p-2 rounded-md hover:bg-button hover:text-buttonText focus:outline-none focus:ring-2 focus:ring-inset focus:ring-buttonText text-base-content"
-          style={{ color: '' }} // Adjust the color as needed
         >
           {isOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10" // Increased size
+              className="h-10 w-10"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -55,7 +69,7 @@ const Navbar = () => {
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10" // Increased size
+              className="h-10 w-10"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
