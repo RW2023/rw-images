@@ -8,6 +8,7 @@ import Masonry from '@mui/lab/Masonry';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import SubHeading from '@/components/ui/SubHeading';
+import Image from 'next/image'; // Import Image if necessary, adjust accordingly
 
 interface ImageData {
   url: string;
@@ -43,30 +44,55 @@ export default function Gallery() {
     setLightboxOpen(true);
   };
 
+  const imageVariants = {
+    offscreen: { opacity: 0, x: 20 },
+    onscreen: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'tween',
+        duration: 0.8,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
+  const flyInFromRight = {
+    offscreen: { x: 100, opacity: 0 },
+    onscreen: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'tween',
+        duration: 1,
+      },
+    },
+  };
+
   if (isLoading) {
     return <Loading />;
   }
-const hoverVariant = {
-  hover: {
-    scale: 1.05,
-    transition: {
-      type: 'spring',
-      stiffness: 300,
-    },
-  },
-};
 
   return (
     <div className="container mx-auto p-4">
-      <SubHeading title="Photography" iconClass="fas fa-images" />
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true }}
+        variants={flyInFromRight}
+      >
+        <SubHeading title="Photography" iconClass="fas fa-images" />
+      </motion.div>
       <Masonry columns={3} spacing={1} className="my-4 justify-between">
         {images.map((img, index) => (
           <motion.div
             key={index}
             className="image-item"
             onClick={() => handleImageClick(index)}
-            whileHover="hover"
-            variants={hoverVariant}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true }}
+            variants={imageVariants}
           >
             <img
               src={`${img.url}?q_auto:good,f_auto,c_limit,w_auto,dpr_auto`}
