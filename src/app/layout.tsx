@@ -13,8 +13,8 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="business">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width" />
         <meta name="author" content="Ryan Wilson" />
         <meta name="robots" content="index, follow" />
         <meta
