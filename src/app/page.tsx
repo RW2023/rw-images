@@ -20,6 +20,12 @@ const hoverVariant = {
   },
 };
 
+// Corrected fadeInVariant
+const fadeInVariant = {
+  initial: { opacity: 0, y: -20, transition: { duration: 0.8 } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
 type ImageType = {
   url: string;
 };
@@ -57,8 +63,10 @@ export default function Home() {
 
   return (
     <div className="container flex flex-col flex-grow mx-auto min-h-screen">
-      <Heading title="ryan wilson images" />
-      <SubHeading title="explore galleries" iconClass="fas fa-images" />
+      <motion.div initial="initial" animate="animate" variants={fadeInVariant}>
+        <Heading title="ryan wilson images" />
+        <SubHeading title="explore galleries" iconClass="fas fa-images" />
+      </motion.div>
 
       <div className="my-1 mx-auto p-1 lg:p-10 ml-1">
         <div className=" bg-black shadow-xl flex flex-col justify-center place-items-start sm:-m-1 rounded glass">
@@ -97,6 +105,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* ... */}
         <SubHeading title="photo gallery" iconClass="fas fa-camera" />
         <Link href={'/gallery'}>
           <Button title="Photos" modifier="btn-ghost" />
