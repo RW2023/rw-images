@@ -145,6 +145,7 @@ export default function Home() {
         </div>
 
         {/* ... */}
+        <div className="my-1 mx-auto p-1 lg:p-10 ml-1">
         <SubHeading title="photo gallery" iconClass="fas fa-camera" />
         <Link href={'/gallery'}>
           <Button
@@ -171,9 +172,10 @@ export default function Home() {
             </motion.div>
           ))}
         </Masonry>
+        </div>
       </div>
 
-      <div className="my-1 mx-auto p-1 justify-center lg:p-10 ml-1">
+      <div className="my-1 mx-auto p-1 justify-center lg:p-10 ml-1 items-center">
         <SubHeading title="a i gallery" iconClass="fas fa-robot" />
         <Link href={'/ai'}>
           <Button title="Images" modifier="btn-ghost border border-gray-900" />
