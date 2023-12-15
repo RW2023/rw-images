@@ -27,7 +27,7 @@ export default function RootLayout({
         />
         <title>Ryan Wilson Images</title>
       </head>
-      <body>
+      <body data-theme="light">
         <Navbar />
         {children}
       </body>
