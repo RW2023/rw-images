@@ -24,7 +24,7 @@ export default function About() {
         </div>
 
         <div className="card  shadow-xl mb-4 glass bg-black">
-          <div className="card-body">
+          <div className="card-body text-headline">
             <SubHeading
               title="A Blend of Art and Technology"
               iconClass="fas fa-paint-brush"
@@ -38,7 +38,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="card shadow-xl mb-4 glass bg-black">
+        <div className="card shadow-xl mb-4 glass bg-black text-headline">
           <div className="card-body">
             <SubHeading
               title="Coding Meets Creativity"
@@ -53,7 +53,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="card bg-black shadow-xl mb-6 glass">
+        <div className="card bg-black shadow-xl mb-6 glass text-headline">
           <div className="card-body">
             <SubHeading
               title="A Continuous Evolution"
