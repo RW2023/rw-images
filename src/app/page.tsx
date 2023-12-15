@@ -146,7 +146,7 @@ export default function Home() {
         <Link href={'/gallery'}>
           <Button
             title="Photos"
-            modifier="btn-ghost border border-base-300 border-gray-900"
+            modifier="btn-ghost border border-base-300 border-black"
           />
         </Link>
         <Masonry
@@ -177,7 +177,7 @@ export default function Home() {
       <div className="my-1 mx-auto p-1 justify-center lg:p-10 ml-1">
         <SubHeading title="a i gallery" iconClass="fas fa-robot" />
         <Link href={'/ai'}>
-          <Button title="Images" modifier="btn-ghost border border-gray-900" />
+          <Button title="Images" modifier="btn-ghost border-2 border-gray-900 border-black" />
         </Link>
         <Masonry
           columns={3}
@@ -192,7 +192,7 @@ export default function Home() {
                 width={300}
                 height={300}
                 layout="responsive"
-                className="rounded-md border border-stroke-500 p-1 bg-black drop-shadow-md"
+                className="rounded-md border-2 border-stroke-500 p-1 bg-black drop-shadow-md"
               />
             </motion.div>
           ))}
