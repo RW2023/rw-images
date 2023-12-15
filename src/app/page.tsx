@@ -20,7 +20,6 @@ const hoverVariant = {
   },
 };
 
-// Corrected fadeInVariant
 const fadeInVariant = {
   initial: { opacity: 0, y: -20, transition: { duration: 0.8 } },
   animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -52,7 +51,7 @@ export default function Home() {
       try {
         const response = await fetch('/api/images');
         const aiResponse = await fetch('/api/ai');
-        
+
         if (!response.ok || !aiResponse.ok) {
           throw new Error('Network response was not ok');
         }
@@ -73,7 +72,6 @@ export default function Home() {
   if (isLoading) {
     return <Loading />;
   }
-  
 
   return (
     <div className="container flex flex-col flex-grow mx-auto min-h-screen">
@@ -83,7 +81,7 @@ export default function Home() {
       </motion.div>
 
       <div className="my-1 mx-auto p-1 lg:p-10 ml-1">
-        <div className=" bg-base-300 shadow-xl flex flex-col justify-center place-items-start sm:-m-1 rounded glass">
+        <div className="bg-base-300 shadow-xl flex flex-col justify-center place-items-start sm:-m-1 rounded glass">
           <div className="card-body text-xl flex flex-col">
             <h2 className="card-title">
               <i className="fa fa-camera-retro"></i> Photography
@@ -101,8 +99,8 @@ export default function Home() {
                     with my Olympus Micro 4/3. My photography journey is a
                     personal exploration, where the marvel of technology - the
                     camera - becomes a tool for simple yet meaningful artistic
-                    expression. It&apos;s a hobby that brings me joy and a
-                    unique way to see the world.
+                    expression. It&apos;s a hobby that brings me joy and a unique way
+                    to see the world.
                   </p>
                 </motion.div>
                 <br />
@@ -113,13 +111,12 @@ export default function Home() {
                   variants={fadeInFromRight}
                 >
                   <p>
-                    <i className="fa fa-cogs"></i> As a nerd I&apos;ve always
-                    loved technology and machines. Cameras and{' '}
+                    <i className="fa fa-cogs"></i> As a nerd, I&apos;ve always loved
+                    technology and machines. Cameras and{' '}
                     <i className="fa fa-brain"></i> generative AI have provided
-                    an avenue for us stick figure Picasso&apos;s. These tools
-                    allow me, and others like me, to creatively express
-                    ourselves in unexpected ways, blending the technical with
-                    the artistic.
+                    an avenue for us stick figure Picasso&apos;s. These tools allow
+                    me, and others like me, to creatively express ourselves in
+                    unexpected ways, blending the technical with the artistic.
                   </p>
                 </motion.div>
                 <br />
@@ -130,22 +127,21 @@ export default function Home() {
                   variants={fadeInFromRight}
                 >
                   <p>
-                    <i className="fa fa-road"></i>The journey through
+                    <i className="fa fa-road"></i> The journey through
                     photography, enhanced by technology, has been enlightening.
-                    It&apos;s not just about capturing images; it&apos;s about
-                    discovering a new way to express myself. This intersection
-                    of technology and art has gently reshaped my perspective on
-                    creativity and what it means to engage in the arts in our
-                    digital era.
+                    It&apos;s not just about capturing images; it&apos;s about discovering
+                    a new way to express myself. This intersection of technology
+                    and art has gently reshaped my perspective on creativity and
+                    what it means to engage in the arts in our digital era.
                   </p>
                 </motion.div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* ... */}
-        <div className="my-1 mx-auto p-1 lg:p-10 ml-1">
+      <div className="my-1 mx-auto p-1 lg:p-10 ml-1">
         <SubHeading title="photo gallery" iconClass="fas fa-camera" />
         <Link href={'/gallery'}>
           <Button
@@ -176,10 +172,9 @@ export default function Home() {
             </motion.div>
           ))}
         </Masonry>
-        </div>
       </div>
 
-      <div className="my-1 mx-auto p-1 justify-center lg:p-10 ml-1 items-center">
+      <div className="my-1 mx-auto p-1 justify-center lg:p-10 ml-1">
         <SubHeading title="a i gallery" iconClass="fas fa-robot" />
         <Link href={'/ai'}>
           <Button title="Images" modifier="btn-ghost border border-gray-900" />
@@ -187,7 +182,7 @@ export default function Home() {
         <Masonry
           columns={3}
           spacing={1}
-          className="mx-auto justify-between glass bg-black"
+          className="justify-between glass bg-black"
         >
           {aiImages.slice(0, 6).map((img, index) => (
             <motion.div key={index} whileHover="hover" variants={hoverVariant}>
