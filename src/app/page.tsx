@@ -149,7 +149,7 @@ export default function Home() {
         <Link href={'/gallery'}>
           <Button
             title="Photos"
-            modifier="btn-ghost border border-base-300 "
+            modifier="btn-ghost border border-base-300 border-gray-900"
           />
         </Link>
         <Masonry columns={3} spacing={1} className="justify-between">
@@ -176,7 +176,7 @@ export default function Home() {
       <div className="my-1 mx-auto p-1 justify-center lg:p-10 ml-1">
         <SubHeading title="a i gallery" iconClass="fas fa-robot" />
         <Link href={'/ai'}>
-          <Button title="Images" modifier="btn-ghost border border-base-300" />
+          <Button title="Images" modifier="btn-ghost border border-gray-900" />
         </Link>
         <Masonry columns={3} spacing={1} className="mx-auto justify-between">
           {aiImages.slice(0, 6).map((img, index) => (
