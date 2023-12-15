@@ -152,7 +152,11 @@ export default function Home() {
             modifier="btn-ghost border border-base-300 border-gray-900"
           />
         </Link>
-        <Masonry columns={3} spacing={1} className="justify-between">
+        <Masonry
+          columns={3}
+          spacing={1}
+          className="justify-between glass bg-black"
+        >
           {images.slice(0, 6).map((img, index) => (
             <motion.div
               key={index}
@@ -178,7 +182,11 @@ export default function Home() {
         <Link href={'/ai'}>
           <Button title="Images" modifier="btn-ghost border border-gray-900" />
         </Link>
-        <Masonry columns={3} spacing={1} className="mx-auto justify-between">
+        <Masonry
+          columns={3}
+          spacing={1}
+          className="mx-auto justify-between glass bg-black"
+        >
           {aiImages.slice(0, 6).map((img, index) => (
             <motion.div key={index} whileHover="hover" variants={hoverVariant}>
               <Image
