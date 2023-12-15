@@ -152,7 +152,7 @@ export default function Home() {
         <Masonry
           columns={3}
           spacing={1}
-          className="justify-between glass bg-black"
+          className="justify-between glass bg-black rounded-md p-1 m-1"
         >
           {images.slice(0, 6).map((img, index) => (
             <motion.div
