@@ -2,6 +2,7 @@ import Navbar from '@/components/ui/Navbar'
 import './globals.css'
 import Footer from '@/components/ui/Footer';
 import Head from 'next/head';
+import DarkModeToggle from '@/components/DarkModeToggle';
 
 
 
@@ -11,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" data-theme="business">
+    <html lang="en" data-theme="light">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
@@ -27,7 +28,7 @@ export default function RootLayout({
         />
         <title>Ryan Wilson Images</title>
       </head>
-      <body data-theme="light">
+      <body >
         <Navbar />
         {children}
       </body>
