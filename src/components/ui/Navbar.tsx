@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import SubHeading from './SubHeading';
+import DarkModeToggle from '../DarkModeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,7 @@ const Navbar = () => {
     <nav
       className="flex items-center justify-between flex-wrap p-3 navbar mt-3 sticky top-0 z-20 bg-base-200 mb-1 shadow-2xl bg-opacity-90"
       style={{ fontFamily: "'Poppins', sans-serif" }}
-      data-theme="black"
+      // data-theme="black"
     >
       <div className="flex items-center flex-shrink-0 text-2xl mr-6">
         <Link href="/">
@@ -93,7 +94,7 @@ const Navbar = () => {
           <Link href="/about">
             <span
               onClick={closeNavbar}
-              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:text-button hover:underline mr-4 cursor-pointer"
+              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl  hover:underline mr-4 cursor-pointer"
             >
               <i className="fas fa-info-circle mr-2"></i>About
             </span>
@@ -101,7 +102,7 @@ const Navbar = () => {
           <Link href="/gallery">
             <span
               onClick={closeNavbar}
-              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:text-button hover:underline mr-4 cursor-pointer"
+              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl  hover:underline mr-4 cursor-pointer"
             >
               <i className="fas fa-images mr-2"></i>Photography
             </span>
@@ -109,7 +110,7 @@ const Navbar = () => {
           <Link href="/ai">
             <span
               onClick={closeNavbar}
-              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:text-button hover:underline mr-4 cursor-pointer"
+              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl  hover:underline mr-4 cursor-pointer"
             >
               <i className="fas fa-robot mr-2"></i>AI
             </span>
@@ -117,7 +118,7 @@ const Navbar = () => {
           <Link href="/feedback">
             <span
               onClick={closeNavbar}
-              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:text-button hover:underline mr-4 cursor-pointer"
+              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:underline mr-4 cursor-pointer"
             >
               <i className="fas fa-comments mr-2"></i>Feedback
             </span>
@@ -125,11 +126,12 @@ const Navbar = () => {
           <Link href="/contact">
             <span
               onClick={closeNavbar}
-              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:text-button hover:underline cursor-pointer mr-2"
+              className="block mt-4 lg:inline-block lg:mt-0 text-strokeLight text-xl hover:underline cursor-pointer mr-2"
             >
               <i className="fas fa-envelope mr-2"></i>Contact
             </span>
           </Link>
+          <DarkModeToggle />
         </div>
       </div>
     </nav>
