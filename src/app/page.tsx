@@ -146,13 +146,13 @@ export default function Home() {
         <Link href={'/gallery'}>
           <Button
             title="Photos"
-            modifier="btn-ghost border border-base-300 border-black"
+            modifier="btn-ghost border-2 border-base-300 border-black"
           />
         </Link>
         <Masonry
           columns={3}
           spacing={1}
-          className="justify-between glass bg-black rounded-md p-1 m-1"
+          className="justify-between glass bg-base-300 rounded-md p-1 m-1"
         >
           {images.slice(0, 6).map((img, index) => (
             <motion.div
@@ -167,7 +167,7 @@ export default function Home() {
                 width={300}
                 height={300}
                 layout="responsive"
-                className="rounded border border-stroke-500 bg-black drop-shadow-md m-1 p-1"
+                className="rounded border border-stroke-500 bg-base-300 drop-shadow-md m-1 p-1"
               />
             </motion.div>
           ))}
