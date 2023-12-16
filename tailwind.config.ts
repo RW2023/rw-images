@@ -27,7 +27,7 @@ module.exports = {
         dark: {
           headline: '#ffffff', // White for headlines
           paragraph: '#c0c7d0', // Lighter grey for paragraphs
-          buttonText: '#d1d5db', // Light grey for button text
+          button: '#d1d5db', // Light grey for button text
           // Add other dark mode colors as needed
         },
       },
