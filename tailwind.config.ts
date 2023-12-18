@@ -25,7 +25,7 @@ module.exports = {
         tertiary: '#000000',
         // Dark mode specific colors
         dark: {
-          headline: '#ffffff', // White for headlines
+          headline: '#000', // White for headlines
           paragraph: '#c0c7d0', // Lighter grey for paragraphs
           button: '#d1d5db', // Light grey for button text
           // Add other dark mode colors as needed
